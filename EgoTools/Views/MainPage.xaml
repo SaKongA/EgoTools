@@ -9,74 +9,74 @@
     mc:Ignorable="d">
 
     <Grid>
-      <StackPanel Orientation="Vertical">
-        <!-- 标题 -->
-        <TextBlock Text="主页" FontSize="24" Margin="16,16,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <!-- 内容区整体（图片、问候、卡片） -->
-        <Grid Margin="32,0,32,0">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-          </Grid.RowDefinitions>
-          <!-- 设备图片和信息 -->
-          <Border Grid.Row="0" Height="160" Background="Transparent" CornerRadius="12" Margin="0,0,0,0">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-              <Image Source="ms-appx:///Assets/Custom/device.png" Stretch="Uniform" Height="120" VerticalAlignment="Center" Margin="0,0,16,0"/>
-              <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                <TextBlock x:Name="DeviceNameText" Text="{x:Bind DeviceName, Mode=OneWay}" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,2"/>
-                <TextBlock Text="HUAWEI Matebook E Go" FontSize="14" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-              </StackPanel>
-            </StackPanel>
-          </Border>
-          <!-- 问候语 -->
-          <TextBlock Grid.Row="1" Text="{x:Bind Greeting, Mode=OneWay}" FontSize="20" FontWeight="SemiBold" Margin="0,0,0,24" Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
-          <!-- 卡片区 -->
-          <Grid Grid.Row="2" Margin="0,0,0,0">
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="*"/>
-              <ColumnDefinition Width="*"/>
-              <ColumnDefinition Width="*"/>
-              <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical">
+            <!-- 标题 -->
+            <TextBlock Text="主页" FontSize="24" Margin="36,32,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <!-- 内容区整体（图片、问候、卡片） -->
+            <Grid Margin="36,0,32,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!-- 设备图片和信息 -->
+                <Border Grid.Row="0" Height="160" Background="Transparent" CornerRadius="12" Margin="0,0,0,0">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Source="ms-appx:///Assets/Custom/device.png" Stretch="Uniform" Height="120" VerticalAlignment="Center" Margin="0,0,16,0"/>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock x:Name="DeviceNameText" Text="{x:Bind DeviceName, Mode=OneWay}" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,2"/>
+                            <TextBlock Text="HUAWEI Matebook E Go" FontSize="14" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <!-- 问候语 -->
+                <TextBlock Grid.Row="1" Text="{x:Bind Greeting, Mode=OneWay}" FontSize="20" FontWeight="SemiBold" Margin="0,0,0,24" Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+                <!-- 卡片区 -->
+                <Grid Grid.Row="2" Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
                     <Border Grid.Column="0" Height="150" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="8" Padding="12" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" Margin="0,0,8,0">
-              <StackPanel VerticalAlignment="Stretch" Height="126">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                  <Image Source="ms-appx:///Assets/Custom/icons/cpu.png" Width="16" Height="16" Margin="0,0,4,0"/>
-                  <TextBlock Text="处理器" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontSize="12" VerticalAlignment="Center"/>
-                </StackPanel>
-                <TextBlock Text="{x:Bind CpuInfo, Mode=OneWay}" FontSize="14" FontWeight="SemiBold" Margin="0,12,0,0" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-              </StackPanel>
-            </Border>
+                        <StackPanel VerticalAlignment="Stretch" Height="126">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="ms-appx:///Assets/Custom/icons/cpu.png" Width="16" Height="16" Margin="0,0,4,0"/>
+                                <TextBlock Text="处理器" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontSize="12" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <TextBlock Text="{x:Bind CpuInfo, Mode=OneWay}" FontSize="14" FontWeight="SemiBold" Margin="0,12,0,0" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
                     <Border Grid.Column="1" Height="150" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="8" Padding="12" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" Margin="0,0,8,0">
-              <StackPanel VerticalAlignment="Stretch" Height="126">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                  <Image Source="ms-appx:///Assets/Custom/icons/disk.png" Width="16" Height="16" Margin="0,0,4,0"/>
-                  <TextBlock Text="存储" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontSize="12" VerticalAlignment="Center"/>
-                </StackPanel>
-                <TextBlock Text="{x:Bind StorageInfo, Mode=OneWay}" FontSize="14" FontWeight="SemiBold" Margin="0,12,0,0" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-              </StackPanel>
-            </Border>
+                        <StackPanel VerticalAlignment="Stretch" Height="126">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="ms-appx:///Assets/Custom/icons/disk.png" Width="16" Height="16" Margin="0,0,4,0"/>
+                                <TextBlock Text="存储" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontSize="12" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <TextBlock Text="{x:Bind StorageInfo, Mode=OneWay}" FontSize="14" FontWeight="SemiBold" Margin="0,12,0,0" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
                     <Border Grid.Column="2" Height="150" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="8" Padding="12" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" Margin="0,0,8,0">
-              <StackPanel VerticalAlignment="Stretch" Height="126">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                  <Image Source="ms-appx:///Assets/Custom/icons/ram.png" Width="16" Height="16" Margin="0,0,4,0"/>
-                  <TextBlock Text="机带RAM" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontSize="12" VerticalAlignment="Center"/>
-                </StackPanel>
-                <TextBlock Text="{x:Bind RamInfo, Mode=OneWay}" FontSize="14" FontWeight="SemiBold" Margin="0,12,0,0" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-              </StackPanel>
-            </Border>
+                        <StackPanel VerticalAlignment="Stretch" Height="126">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="ms-appx:///Assets/Custom/icons/ram.png" Width="16" Height="16" Margin="0,0,4,0"/>
+                                <TextBlock Text="机带RAM" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontSize="12" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <TextBlock Text="{x:Bind RamInfo, Mode=OneWay}" FontSize="14" FontWeight="SemiBold" Margin="0,12,0,0" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
                     <Border Grid.Column="3" Height="150" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="8" Padding="12" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
-              <StackPanel VerticalAlignment="Stretch" Height="126">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                  <Image Source="ms-appx:///Assets/Custom/icons/info.png" Width="16" Height="16" Margin="0,0,4,0"/>
-                  <TextBlock Text="系统" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontSize="12" VerticalAlignment="Center"/>
-                </StackPanel>
-                <TextBlock Text="{x:Bind OsInfo, Mode=OneWay}" FontSize="14" FontWeight="SemiBold" Margin="0,12,0,0" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-              </StackPanel>
-            </Border>
-          </Grid>
-        </Grid>
-      </StackPanel>
+                        <StackPanel VerticalAlignment="Stretch" Height="126">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="ms-appx:///Assets/Custom/icons/info.png" Width="16" Height="16" Margin="0,0,4,0"/>
+                                <TextBlock Text="系统" Foreground="{ThemeResource TextFillColorTertiaryBrush}" FontSize="12" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <TextBlock Text="{x:Bind OsInfo, Mode=OneWay}" FontSize="14" FontWeight="SemiBold" Margin="0,12,0,0" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Page>

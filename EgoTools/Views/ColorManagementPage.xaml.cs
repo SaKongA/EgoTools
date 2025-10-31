@@ -48,7 +48,7 @@ namespace EgoTools.Views
             InitializeComponent();
             config = App.LoadConfig() ?? new AppConfig
             {
-                KeyboardSettings = new KeyboardSettings { KeyboardDetachment = false },
+                KeyboardSettings = new KeyboardSettings { WirelessSupport = false },
                 ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "Default", IgcFile = "", _3dlutFile = "" },
                 PowerThreshold = new PowerThreshold { ChargeLimit = 80 }
             };
@@ -144,7 +144,7 @@ namespace EgoTools.Views
                     {
                         config = new AppConfig
                         {
-                            KeyboardSettings = new KeyboardSettings { KeyboardDetachment = false },
+                            KeyboardSettings = new KeyboardSettings { WirelessSupport = false },
                             ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "Default", IgcFile = "", _3dlutFile = "" },
                             PowerThreshold = new PowerThreshold { ChargeLimit = 100 }
                         };
@@ -457,7 +457,7 @@ namespace EgoTools.Views
                 {
                     config = new AppConfig
                     {
-                        KeyboardSettings = new KeyboardSettings { KeyboardDetachment = false },
+                        KeyboardSettings = new KeyboardSettings { WirelessSupport = false },
                         ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "Default", IgcFile = "", _3dlutFile = "" },
                         PowerThreshold = new PowerThreshold { ChargeLimit = 100 }
                     };

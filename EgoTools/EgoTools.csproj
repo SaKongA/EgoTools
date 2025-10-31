@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
@@ -22,7 +22,8 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="H.NotifyIcon" Version="2.3.0" />
+    <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.2.250402" />
+    <PackageReference Include="H.NotifyIcon.WinUI" Version="2.3.1" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4188" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250606001" />
     <PackageReference Include="System.Management" Version="9.0.7" />
@@ -33,17 +34,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\PowerThresholdPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Views\ColorManagementPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Views\KeyboardSettingsPage.xaml">
+    <Page Update="Views\BatteryControlPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
@@ -60,6 +51,21 @@
     <Content Include="Assets\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\ColorManagementPage.xaml.cs" />
+    <Compile Remove="Views\KeyboardSettingsPage.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\ColorManagementPage.xaml" />
+    <None Remove="Views\KeyboardSettingsPage.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Views\ColorManagementPage.xaml" />
+    <Page Remove="Views\KeyboardSettingsPage.xaml" />
   </ItemGroup>
 
   <!--

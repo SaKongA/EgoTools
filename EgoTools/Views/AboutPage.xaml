@@ -9,106 +9,106 @@
     mc:Ignorable="d">
 
     <Grid>
-      <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel Orientation="Vertical">
-          <TextBlock Text="关于" FontSize="24" Margin="16,16,0,0"/>
-          <!-- 版本信息小标题 -->
-          <TextBlock Text="版本信息" FontSize="16" FontWeight="SemiBold" Margin="28,24,0,8"/>
-          <!-- EgoTools版本条目 -->
-          <Border CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="28,0,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" HorizontalAlignment="Stretch">
-            <Grid HorizontalAlignment="Stretch">
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-              </Grid.ColumnDefinitions>
-              <FontIcon Glyph="&#xE946;" FontSize="20" VerticalAlignment="Center"/>
-              <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
-                <TextBlock Text="EgoTools版本" FontSize="14" FontWeight="SemiBold"/>
-                <TextBlock Text="v1.0.0" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
-              </StackPanel>
-              <Button Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" Click="OnEgoToolsGithubClick">
-                <StackPanel Orientation="Horizontal">
-                  <FontIcon Glyph="&#xE7B5;" FontSize="16"/>
-                  <TextBlock Text="Github 仓库" Margin="4,0,0,0"/>
-                </StackPanel>
-              </Button>
-            </Grid>
-          </Border>
-          <!-- Goddies组件版本条目 -->
-          <Border CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="28,8,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" HorizontalAlignment="Stretch">
-            <Grid HorizontalAlignment="Stretch">
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-              </Grid.ColumnDefinitions>
-              <FontIcon Glyph="&#xEA86;" FontSize="20" VerticalAlignment="Center"/>
-              <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
-                <TextBlock Text="Goddies组件版本" FontSize="14" FontWeight="SemiBold"/>
-                <TextBlock Text="20241223" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
-              </StackPanel>
-              <Button Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" Click="OnGoddiesGithubClick">
-                <StackPanel Orientation="Horizontal">
-                  <FontIcon Glyph="&#xE7B5;" FontSize="16"/>
-                  <TextBlock Text="Github 仓库" Margin="4,0,0,0"/>
-                </StackPanel>
-              </Button>
-            </Grid>
-          </Border>
-          <!-- Contributors小标题 -->
-          <TextBlock Text="Contributors" FontSize="16" FontWeight="SemiBold" Margin="28,14,0,10"/>
-          <!-- dantmnf条目 -->
-          <Border CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="28,0,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" HorizontalAlignment="Stretch">
-            <Grid HorizontalAlignment="Stretch">
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-              </Grid.ColumnDefinitions>
-              <Ellipse Width="50" Height="50" Grid.Column="0" VerticalAlignment="Center">
-                <Ellipse.Fill>
-                  <ImageBrush ImageSource="ms-appx:///Assets/Custom/avatars/dantmnf.jpg"/>
-                </Ellipse.Fill>
-              </Ellipse>
-              <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
-                <TextBlock Text="dantmnf" FontSize="14" FontWeight="SemiBold"/>
-                <TextBlock Text="核心Goddies组件开发者" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
-              </StackPanel>
-              <Button Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" Click="OnDantmnfGithubClick">
-                <StackPanel Orientation="Horizontal">
-                  <FontIcon Glyph="&#xE7B5;" FontSize="16"/>
-                  <TextBlock Text="Github" Margin="4,0,0,0"/>
-                </StackPanel>
-              </Button>
-            </Grid>
-          </Border>
-          <!-- AngelaCooljx条目 -->
-          <Border CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="28,8,24,18" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" HorizontalAlignment="Stretch">
-            <Grid HorizontalAlignment="Stretch">
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-              </Grid.ColumnDefinitions>
-              <Ellipse Width="50" Height="50" Grid.Column="0" VerticalAlignment="Center">
-                <Ellipse.Fill>
-                  <ImageBrush ImageSource="ms-appx:///Assets/Custom/avatars/AngelaCooljx.jpg"/>
-                </Ellipse.Fill>
-              </Ellipse>
-              <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
-                <TextBlock Text="AngelaCooljx" FontSize="14" FontWeight="SemiBold"/>
-                <TextBlock Text="EgoTools开发" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
-              </StackPanel>
-              <Button Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" Click="OnAngelaCooljxGithubClick">
-                <StackPanel Orientation="Horizontal">
-                  <FontIcon Glyph="&#xE7B5;" FontSize="16"/>
-                  <TextBlock Text="Github" Margin="4,0,0,0"/>
-                </StackPanel>
-              </Button>
-            </Grid>
-          </Border>
-        </StackPanel>
-      </ScrollViewer>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="关于" FontSize="24" Margin="36,32,0,24"/>
+                <!-- 版本信息小标题 -->
+                <TextBlock Text="版本信息" FontSize="16" FontWeight="SemiBold" Margin="36,0,0,8"/>
+                <!-- EgoTools版本条目 -->
+                <Border CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="36,0,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" HorizontalAlignment="Stretch">
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <FontIcon Glyph="&#xE946;" FontSize="20" VerticalAlignment="Center"/>
+                        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                            <TextBlock Text="EgoTools版本" FontSize="14" FontWeight="SemiBold"/>
+                            <TextBlock Text="v1.0.0" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
+                        </StackPanel>
+                        <Button Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" Click="OnEgoToolsGithubClick">
+                            <StackPanel Orientation="Horizontal">
+                                <FontIcon Glyph="&#xE7B5;" FontSize="16"/>
+                                <TextBlock Text="Github 仓库" Margin="4,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <!-- Goddies组件版本条目 -->
+                <Border CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="36,8,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" HorizontalAlignment="Stretch">
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <FontIcon Glyph="&#xEA86;" FontSize="20" VerticalAlignment="Center"/>
+                        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                            <TextBlock Text="Goddies组件版本" FontSize="14" FontWeight="SemiBold"/>
+                            <TextBlock Text="20241223" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
+                        </StackPanel>
+                        <Button Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" Click="OnGoddiesGithubClick">
+                            <StackPanel Orientation="Horizontal">
+                                <FontIcon Glyph="&#xE7B5;" FontSize="16"/>
+                                <TextBlock Text="Github 仓库" Margin="4,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <!-- Contributors小标题 -->
+                <TextBlock Text="Contributors" FontSize="16" FontWeight="SemiBold" Margin="36,14,0,10"/>
+                <!-- dantmnf条目 -->
+                <Border CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="36,0,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" HorizontalAlignment="Stretch">
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Ellipse Width="50" Height="50" Grid.Column="0" VerticalAlignment="Center">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="ms-appx:///Assets/Custom/avatars/dantmnf.jpg"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                            <TextBlock Text="dantmnf" FontSize="14" FontWeight="SemiBold"/>
+                            <TextBlock Text="核心Goddies组件开发者" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
+                        </StackPanel>
+                        <Button Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" Click="OnDantmnfGithubClick">
+                            <StackPanel Orientation="Horizontal">
+                                <FontIcon Glyph="&#xE7B5;" FontSize="16"/>
+                                <TextBlock Text="Github" Margin="4,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+                <!-- AngelaCooljx条目 -->
+                <Border CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="36,8,24,18" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" HorizontalAlignment="Stretch">
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Ellipse Width="50" Height="50" Grid.Column="0" VerticalAlignment="Center">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="ms-appx:///Assets/Custom/avatars/AngelaCooljx.jpg"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                            <TextBlock Text="AngelaCooljx" FontSize="14" FontWeight="SemiBold"/>
+                            <TextBlock Text="EgoTools开发" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
+                        </StackPanel>
+                        <Button Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" Click="OnAngelaCooljxGithubClick">
+                            <StackPanel Orientation="Horizontal">
+                                <FontIcon Glyph="&#xE7B5;" FontSize="16"/>
+                                <TextBlock Text="Github" Margin="4,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

@@ -9,14 +9,23 @@
     mc:Ignorable="d"
     xmlns:tb="using:H.NotifyIcon">
 
-    <!-- 移除 <Window.SystemBackdrop>，由代码设置云母背景 -->
+    <Window.SystemBackdrop>
+        <MicaBackdrop Kind="BaseAlt"/>
+    </Window.SystemBackdrop>
+
     <Grid Loaded="RootGrid_Loaded">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TitleBar x:Name="titleBar" Height="48" Grid.Row="0" Title="EgoTools">
+        <TitleBar 
+            x:Name="AppTitleBar" 
+            Height="48" 
+            Grid.Row="0" 
+            Title="EgoTools" 
+            Background="{ThemeResource LayerOnMicaBaseAltFillColorDefault}"
+            IsPaneToggleButtonVisible="False">
             <TitleBar.LeftHeader>
                 <ImageIcon 
                     Height="16"
@@ -32,37 +41,34 @@
             CompactModeThresholdWidth="640"
             ExpandedModeThresholdWidth="800"
             IsBackButtonVisible="Collapsed"
+            Background="{ThemeResource LayerOnMicaBaseAltFillColorDefault}"
             SelectionChanged="NavView_SelectionChanged"
             IsSettingsVisible="False"
-            ItemInvoked="NavView_ItemInvoked">
+            ItemInvoked="NavView_ItemInvoked"
+            IsPaneToggleButtonVisible="True"
+            OpenPaneLength="250">
             <NavigationView.MenuItems>
-                <NavigationViewItem Content="主页" Tag="MainPage">
+                <NavigationViewItem Content="主页" Tag="MainPage" Height="55">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE80F;" FontFamily="Segoe Fluent Icons"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="键盘设置" Tag="KeyboardSettingsPage">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE765;" FontFamily="Segoe Fluent Icons"/>
-                    </NavigationViewItem.Icon>
-                </NavigationViewItem>
-                <NavigationViewItem Content="色彩管理" Tag="ColorManagementPage">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE790;" FontFamily="Segoe Fluent Icons"/>
-                    </NavigationViewItem.Icon>
-                </NavigationViewItem>
-                <NavigationViewItem Content="电源阈值" Tag="PowerThresholdPage">
+                <NavigationViewItem Content="电源管理" Tag="BatteryControlPage" Height="55">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xEBB6;" FontFamily="Segoe Fluent Icons"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="关于" Tag="AboutPage">
+                <NavigationViewItem Content="关于" Tag="AboutPage" Height="55">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE946;" FontFamily="Segoe Fluent Icons"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
-            <Frame x:Name="ContentFrame"/>
+            <Frame x:Name="ContentFrame" Background="{ThemeResource LayerOnMicaBaseAltFillColorSecondaryBrush}"/>
         </NavigationView>
+        <tb:TaskbarIcon
+            IconSource="/Assets/logo.ico"
+            PopupActivation="LeftClick"
+        />
     </Grid>
 </Window>

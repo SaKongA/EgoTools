@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36301.6 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11123.170 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgoTools", "EgoTools\EgoTools.csproj", "{30F09FF3-6946-42EA-A723-FA40286166E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgoTools.Helper", "EgoTools.Helper\EgoTools.Helper.csproj", "{4C08FD5D-5F1C-4AA9-9A44-F95B46B974A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,18 @@ Global
 		{30F09FF3-6946-42EA-A723-FA40286166E8}.Release|x86.ActiveCfg = Release|x86
 		{30F09FF3-6946-42EA-A723-FA40286166E8}.Release|x86.Build.0 = Release|x86
 		{30F09FF3-6946-42EA-A723-FA40286166E8}.Release|x86.Deploy.0 = Release|x86
+		{4C08FD5D-5F1C-4AA9-9A44-F95B46B974A5}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{4C08FD5D-5F1C-4AA9-9A44-F95B46B974A5}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{4C08FD5D-5F1C-4AA9-9A44-F95B46B974A5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4C08FD5D-5F1C-4AA9-9A44-F95B46B974A5}.Debug|x64.Build.0 = Debug|Any CPU
+		{4C08FD5D-5F1C-4AA9-9A44-F95B46B974A5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4C08FD5D-5F1C-4AA9-9A44-F95B46B974A5}.Debug|x86.Build.0 = Debug|Any CPU
+		{4C08FD5D-5F1C-4AA9-9A44-F95B46B974A5}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{4C08FD5D-5F1C-4AA9-9A44-F95B46B974A5}.Release|ARM64.Build.0 = Release|Any CPU
+		{4C08FD5D-5F1C-4AA9-9A44-F95B46B974A5}.Release|x64.ActiveCfg = Release|Any CPU
+		{4C08FD5D-5F1C-4AA9-9A44-F95B46B974A5}.Release|x64.Build.0 = Release|Any CPU
+		{4C08FD5D-5F1C-4AA9-9A44-F95B46B974A5}.Release|x86.ActiveCfg = Release|Any CPU
+		{4C08FD5D-5F1C-4AA9-9A44-F95B46B974A5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

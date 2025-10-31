@@ -29,15 +29,15 @@ namespace EgoTools.Views
             InitializeComponent();
             config = App.LoadConfig() ?? new AppConfig
             {
-                KeyboardSettings = new KeyboardSettings { KeyboardDetachment = false },
+                KeyboardSettings = new KeyboardSettings { WirelessFunc = false },
                 ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "sRGB", IgcFile = "", _3dlutFile = "" },
-                PowerThreshold = new PowerThreshold { ChargeLimit = 100 }
+                PowerThreshold = new BatteryControl { ChargeLimit = 100 }
             };
             if (config.KeyboardSettings == null)
             {
-                config.KeyboardSettings = new KeyboardSettings { KeyboardDetachment = false };
+                config.KeyboardSettings = new KeyboardSettings { WirelessFunc = false };
             }
-            bool detachment = config?.KeyboardSettings?.KeyboardDetachment ?? false;
+            bool detachment = config?.KeyboardSettings?.WirelessFunc ?? false;
             KeyboardDetachmentSwitch.IsOn = detachment;
             KeyboardDetachmentSwitch.Toggled += KeyboardDetachmentSwitch_Toggled;
         }
@@ -99,7 +99,7 @@ namespace EgoTools.Views
                 }
                 // 命令执行成功保存json
                 if (config?.KeyboardSettings != null)
-                    config.KeyboardSettings.KeyboardDetachment = KeyboardDetachmentSwitch.IsOn;
+                    config.KeyboardSettings.WirelessFunc = KeyboardDetachmentSwitch.IsOn;
                 if (config != null)
                     App.SaveConfig(config);
             }

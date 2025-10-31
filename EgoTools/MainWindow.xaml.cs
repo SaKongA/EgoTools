@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using H.NotifyIcon;
+using Microsoft.UI;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -10,11 +8,14 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using System.Runtime.InteropServices;
-using Microsoft.UI;
-using Microsoft.UI.Windowing;
 using WinRT.Interop;
 
 
@@ -28,15 +29,39 @@ namespace EgoTools
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        //导入Dll
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern IntPtr LoadImage(IntPtr hInst, string lpszName, uint uType, int cxDesired, int cyDesired, uint fuLoad);
+        //
+
         public MainWindow()
         {
             InitializeComponent();
-            this.SystemBackdrop = new Microsoft.UI.Xaml.Media.MicaBackdrop();
             NavView.SelectedItem = NavView.MenuItems[0];
             ContentFrame.Navigate(typeof(Views.MainPage));
+
             // 设置标题栏
-            ExtendsContentIntoTitleBar = true;
-            this.AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
+            InitializeTitleBar();
+        }
+
+        private AppWindow GetAppWindowForCurrentWindow()
+        {
+            IntPtr hWnd = WindowNative.GetWindowHandle(this);
+            WindowId wndId = Win32Interop.GetWindowIdFromWindow(hWnd);
+            return AppWindow.GetFromWindowId(wndId);
+        }
+
+        private void InitializeTitleBar()
+        {
+            AppWindow m_appWindow = GetAppWindowForCurrentWindow();
+            m_appWindow.TitleBar.ExtendsContentIntoTitleBar = true;
+            m_appWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
+            m_appWindow.TitleBar.ButtonBackgroundColor = Colors.Transparent;
+            m_appWindow.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            SetTitleBar(AppTitleBar);
         }
 
         private void RootGrid_Loaded(object sender, RoutedEventArgs e)
@@ -68,14 +93,8 @@ namespace EgoTools
                 case "MainPage":
                     ContentFrame.Navigate(typeof(Views.MainPage));
                     break;
-                case "KeyboardSettingsPage":
-                    ContentFrame.Navigate(typeof(Views.KeyboardSettingsPage));
-                    break;
-                case "ColorManagementPage":
-                    ContentFrame.Navigate(typeof(Views.ColorManagementPage));
-                    break;
-                case "PowerThresholdPage":
-                    ContentFrame.Navigate(typeof(Views.PowerThresholdPage));
+                case "BatteryControlPage":
+                    ContentFrame.Navigate(typeof(Views.BatteryControlPage));
                     break;
                 case "AboutPage":
                     ContentFrame.Navigate(typeof(Views.AboutPage));
@@ -83,11 +102,6 @@ namespace EgoTools
             }
         }
 
-        [DllImport("user32.dll", SetLastError = true)]
-        private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
-
-        [DllImport("user32.dll", SetLastError = true)]
-        private static extern IntPtr LoadImage(IntPtr hInst, string lpszName, uint uType, int cxDesired, int cyDesired, uint fuLoad);
 
         private const int WM_SETICON = 0x80;
         private const int ICON_SMALL = 0;

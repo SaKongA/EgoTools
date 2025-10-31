@@ -8,16 +8,16 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="921d8bf7-6263-4a68-87e9-2c6e4cc75ba1"
-    Publisher="CN=23333"
+    Name="e4cc248e-3738-41eb-8115-b55e59ea1543"
+    Publisher="CN=Detach"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="921d8bf7-6263-4a68-87e9-2c6e4cc75ba1" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="e4cc248e-3738-41eb-8115-b55e59ea1543" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>EgoTools</DisplayName>
-    <PublisherDisplayName>23333</PublisherDisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
+    <DisplayName>App1 (Package)</DisplayName>
+    <PublisherDisplayName>Detach</PublisherDisplayName>
+    <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -34,13 +34,13 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="EgoTools"
-        Description="EgoTools"
+        DisplayName="App1 (Package)"
+        Description="App1 (Package)"
         BackgroundColor="transparent"
-        Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        Square150x150Logo="Images\Square150x150Logo.png"
+        Square44x44Logo="Images\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" />
+        <uap:SplashScreen Image="Images\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>
