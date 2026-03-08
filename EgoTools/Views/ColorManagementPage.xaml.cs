@@ -85,6 +85,7 @@ namespace EgoTools.Views
             stack.Children.Add(progressBar);
             var runningDialog = new ContentDialog
             {
+                RequestedTheme=EgoTools.App.RootTheme,
                 Title = "请稍候",
                 Content = stack
             };
@@ -116,6 +117,7 @@ namespace EgoTools.Views
                     {
                         var dialog = new ContentDialog
                         {
+                            RequestedTheme=EgoTools.App.RootTheme,
                             Title = selected == "Default" ? "还原失败" : "色彩预设切换失败",
                             Content = $"命令行错误：{error}",
                             CloseButtonText = "确定",
@@ -174,6 +176,7 @@ namespace EgoTools.Views
                 runningDialog.Hide();
                 var dialog = new ContentDialog
                 {
+                    RequestedTheme=EgoTools.App.RootTheme,
                     Title = selected == "Default" ? "还原失败" : "调用失败",
                     Content = $"无法调用qdcm-loader.exe：{ex.Message}",
                     CloseButtonText = "确定",
@@ -207,6 +210,7 @@ namespace EgoTools.Views
             {
                 ContentDialog dialog = new ContentDialog
                 {
+                    RequestedTheme=EgoTools.App.RootTheme,
                     Title = "已选择文件",
                     Content = $"已选择 {file.Name}，确定要继续使用这个校色文件吗？",
                     PrimaryButtonText = "确定",
@@ -239,6 +243,7 @@ namespace EgoTools.Views
                 stack.Children.Add(progressBar);
                 var runningDialog = new ContentDialog
                 {
+                    RequestedTheme=EgoTools.App.RootTheme,
                     Title = "请稍候",
                     Content = stack
                 };
@@ -271,6 +276,7 @@ namespace EgoTools.Views
                         {
                             var dialog = new ContentDialog
                             {
+                                RequestedTheme=EgoTools.App.RootTheme,
                                 Title = "Gamma校正加载失败",
                                 Content = $"命令行错误：{error}",
                                 CloseButtonText = "确定",
@@ -294,6 +300,7 @@ namespace EgoTools.Views
                     runningDialog.Hide();
                     var dialog = new ContentDialog
                     {
+                        RequestedTheme=EgoTools.App.RootTheme,
                         Title = "调用失败",
                         Content = $"无法调用qdcm-loader.exe：{ex.Message}",
                         CloseButtonText = "确定",
@@ -321,6 +328,7 @@ namespace EgoTools.Views
                 stack.Children.Add(progressBar);
                 var runningDialog = new ContentDialog
                 {
+                    RequestedTheme=EgoTools.App.RootTheme,
                     Title = "请稍候",
                     Content = stack
                 };
@@ -353,6 +361,7 @@ namespace EgoTools.Views
                         {
                             var dialog = new ContentDialog
                             {
+                                RequestedTheme=EgoTools.App.RootTheme,
                                 Title = "3D LUT加载失败",
                                 Content = $"命令行错误：{error}",
                                 CloseButtonText = "确定",
@@ -376,6 +385,7 @@ namespace EgoTools.Views
                     runningDialog.Hide();
                     var dialog = new ContentDialog
                     {
+                        RequestedTheme=EgoTools.App.RootTheme,
                         Title = "调用失败",
                         Content = $"无法调用qdcm-loader.exe：{ex.Message}",
                         CloseButtonText = "确定",
@@ -389,6 +399,7 @@ namespace EgoTools.Views
         {
             ContentDialog confirmDialog = new ContentDialog
             {
+                RequestedTheme=EgoTools.App.RootTheme,
                 Title = "重置确认",
                 Content = "确定要将色彩管理设置还原为出厂状态吗？",
                 PrimaryButtonText = "确定",
@@ -410,6 +421,7 @@ namespace EgoTools.Views
             stack.Children.Add(progressBar);
             var runningDialog = new ContentDialog
             {
+                RequestedTheme=EgoTools.App.RootTheme,
                 Title = "重置中",
                 Content = stack
             };
@@ -443,6 +455,7 @@ namespace EgoTools.Views
                     {
                         var dialog = new ContentDialog
                         {
+                            RequestedTheme=EgoTools.App.RootTheme,
                             Title = "重置失败",
                             Content = $"命令行错误：{error}",
                             CloseButtonText = "确定",
@@ -493,6 +506,7 @@ namespace EgoTools.Views
                 runningDialog.Hide();
                 var dialog = new ContentDialog
                 {
+                    RequestedTheme=EgoTools.App.RootTheme,
                     Title = "调用失败",
                     Content = $"无法调用qdcm-loader.exe：{ex.Message}",
                     CloseButtonText = "确定",

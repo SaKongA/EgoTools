@@ -56,6 +56,7 @@ namespace EgoTools.Views
             stack.Children.Add(progressBar);
             var runningDialog = new ContentDialog
             {
+                RequestedTheme=EgoTools.App.RootTheme,
                 Title = "请稍候",
                 Content = stack
             };
@@ -88,6 +89,7 @@ namespace EgoTools.Views
                     {
                         var dialog = new ContentDialog
                         {
+                            RequestedTheme=EgoTools.App.RootTheme,
                             Title = "键盘分离设置失败",
                             Content = $"命令行错误：{error}",
                             CloseButtonText = "确定",
@@ -109,6 +111,7 @@ namespace EgoTools.Views
                 runningDialog.Hide();
                 var dialog = new ContentDialog
                 {
+                    RequestedTheme=EgoTools.App.RootTheme,
                     Title = "调用失败",
                     Content = $"无法调用kbd-detach.exe：{ex.Message}",
                     CloseButtonText = "确定",

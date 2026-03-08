@@ -41,6 +41,31 @@ namespace EgoTools
 
         private void RootGrid_Loaded(object sender, RoutedEventArgs e)
         {
+            if (sender is FrameworkElement fe)
+            {
+                fe.ActualThemeChanged += (s, args) =>
+                {
+                    // 当实际主题改变时，更新标题栏按钮颜色
+                    App.UpdateTitleBarColors(App.RootTheme);
+                };
+            }
+
+            // Apply Theme here so TitleBar has been initialized
+            try
+            {
+                var config = App.LoadConfig();
+                if (config.AppearanceSettings != null)
+                {
+                    string themeStr = config.AppearanceSettings.Theme;
+                    ElementTheme theme = ElementTheme.Default;
+                    if (themeStr == "Light") theme = ElementTheme.Light;
+                    else if (themeStr == "Dark") theme = ElementTheme.Dark;
+                    
+                    App.ApplyTheme(theme);
+                }
+            }
+            catch { }
+
             ((App)Application.Current).CheckUtilsFiles(this);
         }
 

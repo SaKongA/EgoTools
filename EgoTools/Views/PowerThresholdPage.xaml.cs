@@ -77,6 +77,7 @@ namespace EgoTools.Views
         {
             var dialog = new ContentDialog
             {
+                RequestedTheme=EgoTools.App.RootTheme,
                 Title = "需要管理员权限",
                 Content = "请点击上方‘获取’按钮，以管理员身份重启应用后再调整电源阈值。",
                 CloseButtonText = "确定",
@@ -129,6 +130,7 @@ namespace EgoTools.Views
             stack.Children.Add(progressBar);
             var runningDialog = new ContentDialog
             {
+                RequestedTheme=EgoTools.App.RootTheme,
                 Title = "请稍候",
                 Content = stack
             };
@@ -166,6 +168,7 @@ namespace EgoTools.Views
                 runningDialog.Hide();
                 var dialog = new ContentDialog
                 {
+                    RequestedTheme=EgoTools.App.RootTheme,
                     Title = "设置失败",
                     Content = $"调用WMI失败：{ex.Message}",
                     CloseButtonText = "确定",
@@ -192,6 +195,7 @@ namespace EgoTools.Views
             {
                 var dialog = new ContentDialog
                 {
+                    RequestedTheme=EgoTools.App.RootTheme,
                     Title = "提权失败",
                     Content = $"无法以管理员身份重启：{ex.Message}",
                     CloseButtonText = "确定",

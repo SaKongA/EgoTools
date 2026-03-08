@@ -12,6 +12,29 @@
       <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Orientation="Vertical">
           <TextBlock Text="关于" FontSize="24" Margin="16,16,0,0"/>
+
+          <!-- 设置小标题 -->
+          <TextBlock Text="外观设置" FontSize="16" FontWeight="SemiBold" Margin="28,24,0,8"/>
+          <!-- 颜色模式条目 -->
+          <Border CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="28,0,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" HorizontalAlignment="Stretch">
+            <Grid HorizontalAlignment="Stretch">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+              </Grid.ColumnDefinitions>
+              <FontIcon Glyph="&#xE790;" FontSize="20" VerticalAlignment="Center"/>
+              <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                <TextBlock Text="颜色模式" FontSize="14" FontWeight="SemiBold"/>
+                <TextBlock Text="选择应用的主题模式" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
+              </StackPanel>
+              <ComboBox x:Name="ThemeComboBox" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" SelectionChanged="ThemeComboBox_SelectionChanged">
+                <ComboBoxItem Content="跟随系统" Tag="Default"/>
+                <ComboBoxItem Content="亮色" Tag="Light"/>
+                <ComboBoxItem Content="暗色" Tag="Dark"/>
+              </ComboBox>
+            </Grid>
+          </Border>
           <!-- 版本信息小标题 -->
           <TextBlock Text="版本信息" FontSize="16" FontWeight="SemiBold" Margin="28,24,0,8"/>
           <!-- EgoTools版本条目 -->
