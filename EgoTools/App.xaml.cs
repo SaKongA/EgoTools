@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using Microsoft.UI.Xaml;
@@ -29,6 +29,8 @@ namespace EgoTools
             InitializeComponent();
         }
 
+        public static ElementTheme RootTheme { get; private set; } = ElementTheme.Default;
+
         /// <summary>
         /// Invoked when the application is launched.
         /// </summary>
@@ -37,7 +39,46 @@ namespace EgoTools
         {
             _window = new MainWindow();
             MainWindowInstance = _window;
+
             _window.Activate();
+        }
+
+        public static void ApplyTheme(ElementTheme theme)
+        {
+            RootTheme = theme;
+            if (MainWindowInstance?.Content is FrameworkElement frameworkElement)
+            {
+                frameworkElement.RequestedTheme = theme;
+            }
+
+            UpdateTitleBarColors(theme);
+        }
+
+        public static void UpdateTitleBarColors(ElementTheme theme)
+        {
+            if (MainWindowInstance != null)
+            {
+                var titleBar = MainWindowInstance.AppWindow.TitleBar;
+                
+                // Determine whether the theme is dark
+                bool isDark = theme == ElementTheme.Dark || 
+                              (theme == ElementTheme.Default && MainWindowInstance.Content is FrameworkElement fe && fe.ActualTheme == ElementTheme.Dark);
+
+                Windows.UI.Color transparent = Microsoft.UI.Colors.Transparent;
+                Windows.UI.Color foreground = isDark ? Microsoft.UI.Colors.White : Microsoft.UI.Colors.Black;
+                Windows.UI.Color inactiveForeground = isDark ? Microsoft.UI.ColorHelper.FromArgb(255, 119, 119, 119) : Microsoft.UI.ColorHelper.FromArgb(255, 153, 153, 153);
+                Windows.UI.Color hoverBackground = isDark ? Microsoft.UI.ColorHelper.FromArgb(25, 255, 255, 255) : Microsoft.UI.ColorHelper.FromArgb(25, 0, 0, 0);
+                Windows.UI.Color pressedBackground = isDark ? Microsoft.UI.ColorHelper.FromArgb(51, 255, 255, 255) : Microsoft.UI.ColorHelper.FromArgb(51, 0, 0, 0);
+
+                titleBar.ButtonBackgroundColor = transparent;
+                titleBar.ButtonForegroundColor = foreground;
+                titleBar.ButtonHoverBackgroundColor = hoverBackground;
+                titleBar.ButtonHoverForegroundColor = foreground;
+                titleBar.ButtonPressedBackgroundColor = pressedBackground;
+                titleBar.ButtonPressedForegroundColor = foreground;
+                titleBar.ButtonInactiveBackgroundColor = transparent;
+                titleBar.ButtonInactiveForegroundColor = inactiveForeground;
+            }
         }
 
         public async void CheckUtilsFiles(Window win)
@@ -58,6 +99,7 @@ namespace EgoTools
                 msg += $"\n\n实际查找路径：\n{utilsPath}";
                 var dialog = new ContentDialog
                 {
+                    RequestedTheme=EgoTools.App.RootTheme,
                     Title = "组件缺失",
                     Content = msg,
                     PrimaryButtonText = "退出"
@@ -89,6 +131,7 @@ namespace EgoTools
                 stack.Children.Add(progressBar);
                 var dialog = new ContentDialog
                 {
+                    RequestedTheme=EgoTools.App.RootTheme,
                     Title = "初始化中",
                     Content = stack
                 };
@@ -104,7 +147,8 @@ namespace EgoTools
                     {
                         KeyboardSettings = new KeyboardSettings { KeyboardDetachment = false },
                         ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "Default", IgcFile = "", _3dlutFile = "" },
-                        PowerThreshold = new PowerThreshold { ChargeLimit = 100 }
+                        PowerThreshold = new PowerThreshold { ChargeLimit = 100 },
+                        AppearanceSettings = new AppearanceSettings { Theme = "Default" }
                     };
                     string json = JsonSerializer.Serialize(defaultConfig, AppJsonContext.Default.AppConfig);
                     File.WriteAllText(configPath, json);
@@ -134,6 +178,7 @@ namespace EgoTools
                     errorStack.Children.Add(errorBar);
                     var errorDialog = new ContentDialog
                     {
+                        RequestedTheme=EgoTools.App.RootTheme,
                         Title = "错误",
                         Content = errorStack,
                         PrimaryButtonText = "退出",
@@ -149,6 +194,7 @@ namespace EgoTools
                 {
                     var okDialog = new ContentDialog
                     {
+                        RequestedTheme=EgoTools.App.RootTheme,
                         Title = "初始化完成",
                         Content = "初始化完毕，欢迎使用！",
                         CloseButtonText = "确定"

@@ -26,6 +26,56 @@ namespace EgoTools.Views
         public AboutPage()
         {
             InitializeComponent();
+            this.Loaded += AboutPage_Loaded;
+        }
+
+        private void AboutPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var config = App.LoadConfig();
+                var theme = config.AppearanceSettings?.Theme ?? "Default";
+
+                // 先取消订阅，避免设置初始值时触发 ApplyTheme
+                ThemeComboBox.SelectionChanged -= ThemeComboBox_SelectionChanged;
+                foreach (ComboBoxItem item in ThemeComboBox.Items)
+                {
+                    if (item.Tag.ToString() == theme)
+                    {
+                        ThemeComboBox.SelectedItem = item;
+                        break;
+                    }
+                }
+                ThemeComboBox.SelectionChanged += ThemeComboBox_SelectionChanged;
+            }
+            catch { }
+        }
+
+        private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ThemeComboBox.SelectedItem is ComboBoxItem item && item.Tag != null)
+            {
+                string selectedTheme = item.Tag.ToString()!;
+                try
+                {
+                    var config = App.LoadConfig();
+                    if (config.AppearanceSettings == null)
+                    {
+                        config.AppearanceSettings = new AppearanceSettings();
+                    }
+                    config.AppearanceSettings.Theme = selectedTheme;
+                    App.SaveConfig(config);
+
+                    // Apply the new theme
+                    if (selectedTheme == "Light")
+                        App.ApplyTheme(ElementTheme.Light);
+                    else if (selectedTheme == "Dark")
+                        App.ApplyTheme(ElementTheme.Dark);
+                    else
+                        App.ApplyTheme(ElementTheme.Default);
+                }
+                catch { }
+            }
         }
 
         private async void OnDantmnfGithubClick(object sender, RoutedEventArgs e)
